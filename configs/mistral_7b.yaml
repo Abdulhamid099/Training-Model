@@ -1,0 +1,63 @@
+# Mistral-7B Training Configuration
+# Usage: python scripts/train.py --config configs/mistral_7b.yaml
+
+# Model configuration
+model_name: "mistralai/Mistral-7B-Instruct-v0.2"
+cache_dir: null
+
+# Dataset configuration
+dataset_path: "datasets"
+train_file: "train.jsonl"
+eval_file: "eval.jsonl"
+test_file: null
+max_length: 2048
+
+# Training parameters
+output_dir: "outputs/mistral-7b-fine-tuned"
+num_train_epochs: 3
+per_device_train_batch_size: 2
+per_device_eval_batch_size: 4
+gradient_accumulation_steps: 8
+learning_rate: 2e-4
+weight_decay: 0.01
+warmup_steps: 100
+
+# LoRA configuration
+use_lora: true
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.1
+lora_target_modules: ["q_proj", "k_proj", "v_proj", "o_proj"]
+
+# Precision and optimization
+fp16: true
+bf16: false
+gradient_checkpointing: true
+dataloader_num_workers: 4
+
+# Evaluation and logging
+evaluation_strategy: "steps"
+eval_steps: 500
+save_steps: 500
+logging_steps: 50
+load_best_model_at_end: true
+metric_for_best_model: "eval_loss"
+greater_is_better: false
+
+# Logging and monitoring
+report_to: "wandb"  # Set to null to disable
+run_name: "mistral-7b-fine-tune"
+project_name: "llm-fine-tuning"
+
+# Hardware configuration
+use_cpu: false
+device_map: "auto"
+
+# Early stopping
+early_stopping_patience: 3
+early_stopping_threshold: 0.001
+
+# Miscellaneous
+seed: 42
+resume_from_checkpoint: null
+save_total_limit: 3

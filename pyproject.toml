@@ -1,0 +1,93 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "training-model"
+version = "0.1.0"
+description = "A hands-on repository for experimenting with training/fine-tuning large language models"
+authors = [
+    {name = "Abdulhamid Alsabagh", email = "your.email@example.com"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+keywords = ["machine learning", "transformers", "fine-tuning", "llm", "nlp"]
+
+dependencies = [
+    "torch>=2.1.0",
+    "transformers>=4.35.0",
+    "datasets>=2.14.0",
+    "accelerate>=0.24.0",
+    "peft>=0.6.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "tqdm>=4.65.0",
+    "pyyaml>=6.0",
+    "click>=8.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "jupyter>=1.0.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "isort>=5.12.0",
+]
+gpu = [
+    "bitsandbytes>=0.41.0",
+]
+logging = [
+    "wandb>=0.15.0",
+    "tensorboard>=2.14.0",
+]
+evaluation = [
+    "evaluate>=0.4.0",
+    "rouge-score>=0.1.2",
+    "bleu>=0.1.0",
+    "scikit-learn>=1.3.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/yourusername/training-model"
+"Bug Reports" = "https://github.com/yourusername/training-model/issues"
+"Source" = "https://github.com/yourusername/training-model"
+
+[project.scripts]
+train-model = "training_model.training.cli:main"
+preprocess-data = "training_model.data.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
