@@ -1,0 +1,3 @@
+{"prompt": "What is LoRA in the context of LLMs?", "response": "LoRA is a technique that fine-tunes low-rank adapters instead of all model weights, making training efficient."}
+{"prompt": "Explain the benefit of using 4-bit quantization for fine-tuning.", "response": "It drastically reduces memory usage so larger models can be adapted on smaller GPUs."}
+{"prompt": "Provide a JSONL example with prompt and response fields.", "response": "Each line is a JSON object: {\"prompt\": \"...\", \"response\": \"...\"}."}

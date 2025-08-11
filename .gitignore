@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.env
+.env.*
+
+# Data and outputs
+/data/**
+!data/sample.jsonl
+/outputs/**
+/checkpoints/**
+/models/**
+/logs/**
+/wandb/**
+/.cache/**
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+# Accelerate
+accelerate/*
+
+# VSCode/Editor
+.vscode/
+.idea/
