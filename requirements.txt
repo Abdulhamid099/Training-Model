@@ -1,0 +1,24 @@
+# Core ML stack
+transformers>=4.41.0
+accelerate>=0.30.0
+datasets>=2.19.0
+peft>=0.11.1
+# Optional for 4-bit quantization; skip if not on CUDA
+bitsandbytes>=0.43.1
+
+# Utils
+pyyaml>=6.0.1
+rich>=13.7.0
+tqdm>=4.66.0
+typer>=0.12.0
+pydantic>=2.8.0
+
+# Evaluation
+evaluate>=0.4.2
+scikit-learn>=1.4.0
+
+# PDF parsing (optional for data prep)
+pypdf>=4.2.0
+
+# Dev/test
+testresources>=2.0.1
